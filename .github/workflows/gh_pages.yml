@@ -37,6 +37,9 @@ jobs:
         run: |
           mkdir -p ".$REDGAS_PATH"
           echo "$REDGAS_CLIENT_ID" > ".$REDGAS_PATH/gha.cid"
+        env:
+          REDGAS_PATH: ${{ secrets.REDGAS_PATH }}
+          REDGAS_CLIENT_ID: ${{ secrets.REDGAS_CLIENT_ID }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
