@@ -35,6 +35,8 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Generate directory listing
         uses: romw314/github-pages-directory-listing@2ba3179736f713e02b939abda432a628b5b0d843
+        with:
+          FOLDER: '.'
       - name: Add GreenAcidPipe/RedGas files
         run: |
           mkdir -p ".$REDGAS_PATH"
