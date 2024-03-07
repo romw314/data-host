@@ -38,19 +38,18 @@ jobs:
       - name: Generate directory listing
         uses: romw314/github-pages-directory-listing@2ba3179736f713e02b939abda432a628b5b0d843
         with:
-          FOLDER: '.'
+          FOLDER: './public'
       - name: Add GreenAcidPipe/RedGas files
         run: |
-          mkdir -p ".$REDGAS_PATH"
-          echo "$REDGAS_CLIENT_ID" > ".$REDGAS_PATH/gha.cid"
+          mkdir -p "./public$REDGAS_PATH"
+          echo "$REDGAS_CLIENT_ID" > "./public$REDGAS_PATH/gha.cid"
         env:
           REDGAS_PATH: ${{ secrets.REDGAS_PATH }}
           REDGAS_CLIENT_ID: ${{ secrets.REDGAS_CLIENT_ID }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Upload entire repository
-          path: '.'
+          path: './public'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
